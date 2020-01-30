@@ -23,7 +23,7 @@ Para la ejecucion de las pruebas automarizadas creadas para el programa de calcu
 ### Analisis de pruebas
 La funcionalidad que se le da a las pruebas es poder concluir que las ocho operaciones creadas en el programa expuesto funcionen con cualquier tupla de valores, sin importar si son tuplas de numeros enteros o con decimales de maximo dos cifras.
 
-### Tipo de pruebas
+### Codigo de pruebas
 test_suma = Esta prueba tiene como finalidad testear la funcion suma de la calculadora de numeros complejos
 
 test_resta = Esta prueba tiene como finalidad testear la funcion resta de la calculadora de numeros complejos
