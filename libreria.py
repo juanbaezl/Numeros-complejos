@@ -18,15 +18,14 @@ def div (a,b):
 def conjug (a):
     return (a[0], -(a[1]))
 
-def mod (a):
-    return ((a[0]**2)+(a[1]**2))**0.5
+def mod (a,b):
+    return ((a**2)+(b**2))**0.5
 
-def pol (a):
-    return (mod (a), math.degrees(math.atan2(a[0]/a[1])))
+def pol (a,b):
+    return (mod (a,b), math.degrees(math.atan2(b,a)))
 
-def fase (a):
-    return (math.degrees(math.atan2(a[0]/a[1])))
-
+def fase (a,b):
+    return (math.degrees(math.atan2(b,a)))
 
 
             
