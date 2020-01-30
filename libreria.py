@@ -22,10 +22,10 @@ def mod (a):
     return ((a[0]**2)+(a[1]**2))**0.5
 
 def pol (a):
-    return (mod (a), math.degrees(math.atan(a[0]/a[1])))
+    return (mod (a), math.degrees(math.atan2(a[0]/a[1])))
 
-def retorno (a):
-    return (math.degrees(math.atan(a[0]/a[1])))
+def fase (a):
+    return (math.degrees(math.atan2(a[0]/a[1])))
 
 
 
