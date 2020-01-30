@@ -29,16 +29,16 @@ class TestStringMethods(unittest.TestCase):
 
     def test_modulo(self):
             v = (3,1)
-            self.assertEqual (mod (v) , (10**(1/2)))
+            self.assertEqual (mod (v[0],v[1]) , (10**(1/2)))
 
     def test_fase (self) :
         v = (1,1)
-        self.assertEqual (fase (v) , (45))
+        self.assertEqual (fase (v[0],v[1]) , (45))
 
     def test_polar (self):
         v = (1,1)
-        self.assertEqual (pol (v) , ((2**(1/2)) , 45))
+        self.assertEqual (pol (v[0],v[1]) , ((2**(1/2)) , 45))
 
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
         unittest.main()
