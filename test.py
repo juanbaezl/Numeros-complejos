@@ -5,7 +5,7 @@ class TestStringMethods(unittest.TestCase):
     def test_suma(self):
         v = (3,1)
         d = (4,5)
-        self.assertEqual (Suma (v,d) , (7,6))
+        self.assertEqual (suma (v,d) , (7,6))
 
 
     def test_resta(self):
@@ -39,6 +39,21 @@ class TestStringMethods(unittest.TestCase):
         v = (1,1)
         self.assertEqual (pol (v[0],v[1]) , ((2**(1/2)) , 45))
 
+    def test_addvect (self):
+        d=[(1,2),(1,2),(1,2),(1,2)]
+        v=[(1,2),(1,2),(1,2),[1,2]]
+        self.assertEqual (addvect (v,d), [(2, 4), (2, 4), (2, 4), (2, 4)])
+
+    def test_inversa (self):
+        v = [(1,2),(1,2)]
+        self.assertEqual (inverse (v) , [(-1,-2),(-1,-2)])
+
+    def test_escalvect (self):
+        v=[(1,2),(1,2),(1,2),[1,2]]
+        f=4
+        self.assertEqual (escal (v,f),[(4, 8), (4, 8), (4, 8), (4, 8)])
+
 
 if __name__ == '__main__':
         unittest.main()
+
