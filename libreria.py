@@ -1,6 +1,6 @@
 import math
 
-def Suma (a,b):
+def suma (a,b):
     return (a[0]+b[0], a[1]+b[1])
 
 def prettyPrinting (a):
@@ -28,59 +28,59 @@ def fase (a,b):
     return (math.degrees(math.atan2(b,a)))
 
 def addvect (a,b):
-    matriz = [[],[]]
+    matriz = len (a)*[([],[])]
     for i in range (0,len (a)):
-        matriz = suma (a[i],b[i])
-        prettyPrinting (matriz)
+        matriz[i] = suma (a[i],b[i])
+    return(matriz)
 
 def men (a):
     return (-(a[0]),-(a[1]))
 
 def inverse (a):
-    matriz= [[]]
+    matriz =len(a)*[([],[])] 
+    i=0
     for i in range (0,len(a)):
-        matriz = (men(a[i]))
-        prettyPrinting (matriz)
+        matriz [i] = men(a[i])
+    return (matriz)
 
 def multi (a,b):
+    
     return (a*b[0],a*b[1])
 
 
 def escal (a,b):
-    matriz= [[],[]]
+    matriz = len (a)*[([],[])]
     for i in range (0,len(a)):
-           matriz= multi(b,(a[i]))
-           prettyPrinting (matriz)
+           matriz[i] = multi(b,(a[i]))
+    return (matriz)
     
 def addmat (a,b):
-    matriz= [[[],[]],[[],[]]]
-    res= [[[],[]],[[],[]]]
+    matriz= len(a)*[len(a)*[([],[])]]
     for i in range (0,len(a)):
         for j in range (0,len(a)):
-            matriz = suma (a[i][j],b[i][j])
-            res[i][j]= matriz
-            print (res)
+            matriz[i] = suma (a[i][j],b[i][j])
+    return (matriz)
 
 def invmat (a):
     matriz: [[[],[]],[[],[]]]
     for i in range (0,len (a)):
         for j in range (0, len (a)):
             matriz = men (a[i][j])
-            prettyPrinting(matriz)
+            print(matriz)
 
 def mult_escal (b,a):
     matriz: [[[],[]],[[],[]]]
     for i in range (0,len (b)):
         for j in range (0, len (b)):
             matriz= (multi(a,(b[i][j])))
-            prettyPrinting (matriz)
+            print (matriz)
 
 def trans (a):
     matriz: [[[],[]],[[],[]]]
     for i in range (0,len (a)):
         for j in range (0, len (a)):
             matriz = a[j][i]
-            prettyPrinting (matriz)
+            print (matriz)
 def conmat (a):
     matriz: [[[],[]],[[],[]]]
     for i in range (0,len (a)):
@@ -93,5 +93,12 @@ def adjunt (a):
     for i in range (0,len (a)):
         for j in range (0, len (a)):
             matriz = conjug (a[j][i])
-            prettyPrinting (matriz)
+            print (matriz)
+
+matriz= 3*[3*[([],[])]]
+d=[(1,2),(1,2),(1,2),(1,2)]
+v=[(1,2),(1,2),(1,2),[1,2]]
+f=4
+print (matriz)
             
+
