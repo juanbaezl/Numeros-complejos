@@ -55,50 +55,67 @@ def escal (a,b):
     return (matriz)
     
 def addmat (a,b):
-    matriz= len(a)*[len(a)*[([],[])]]
+    matriz = []
+    for i in range(len(a)):
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
     for i in range (0,len(a)):
         for j in range (0,len(a)):
-            matriz[i] = suma (a[i][j],b[i][j])
+            matriz[i][j] = suma (a[i][j],b[i][j])
     return (matriz)
 
 def invmat (a):
-    matriz: [[[],[]],[[],[]]]
-    for i in range (0,len (a)):
-        for j in range (0, len (a)):
-            matriz = men (a[i][j])
-            print(matriz)
+    matriz = []
+    for i in range(len(a)):
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
+    for i in range (0,len(a)):
+        for j in range (0,len(a)):
+             matriz[i][j] = men (a[i][j])
+    return (matriz)
 
 def mult_escal (b,a):
-    matriz: [[[],[]],[[],[]]]
+    matriz = []
+    for i in range(len(b)):
+        matriz.append([])
+        for j in range(len(b)):
+            matriz[i].append(None)
     for i in range (0,len (b)):
         for j in range (0, len (b)):
-            matriz= (multi(a,(b[i][j])))
-            print (matriz)
+            matriz [i][j]= (multi(a,(b[i][j])))
+    return (matriz)
 
-def trans (a):
-    matriz: [[[],[]],[[],[]]]
+def transpuesta (a):
+    matriz = []
+    for i in range(len(a)):
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
     for i in range (0,len (a)):
         for j in range (0, len (a)):
-            matriz = a[j][i]
-            print (matriz)
-def conmat (a):
-    matriz: [[[],[]],[[],[]]]
+            matriz[i][j] = a[j][i]
+    return (matriz)
+
+def conjugmat (a):
+    matriz = []
+    for i in range(len(a)):
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
     for i in range (0,len (a)):
         for j in range (0, len (a)):
-            matriz = conjug (a[i][j])
-            prettyPrinting (matriz)
+            matriz[i][j] = conjug (a[i][j])
+    return (matriz)
 
-def adjunt (a):
-    matriz: [[[],[]],[[],[]]]
+def adjunta (a):
+    matriz = []
+    for i in range(len(a)):
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
     for i in range (0,len (a)):
         for j in range (0, len (a)):
-            matriz = conjug (a[j][i])
-            print (matriz)
-
-matriz= 3*[3*[([],[])]]
-d=[(1,2),(1,2),(1,2),(1,2)]
-v=[(1,2),(1,2),(1,2),[1,2]]
-f=4
-print (matriz)
-            
-
+            matriz[i][j] = conjug (a[j][i])
+    return (matriz)
