@@ -53,6 +53,31 @@ class TestStringMethods(unittest.TestCase):
         f=4
         self.assertEqual (escal (v,f),[(4, 8), (4, 8), (4, 8), (4, 8)])
 
+    def test_summat (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        v=[(1,2),(3,2)],[(2,2),[5,2]]
+        self.assertEqual (addmat (d,v),[[(2, 4), (6, 4)], [(5, 5), (9, 4)]])
+
+    def test_invmat (self):
+         d=[(1,2),(3,2)],[(3,3),(4,2)]
+         self.assertEqual (invmat(d),[[(-1, -2), (-3, -2)], [(-3, -3), (-4, -2)]])
+
+    def test_escalmat (self):
+         d=[(1,2),(3,2)],[(3,3),(4,2)]
+         f=4
+         self.assertEqual (mult_escal (d,f),[[(4, 8), (12, 8)], [(12, 12), (16, 8)]] )
+
+    def test_transpuesta (self):
+         d=[(1,2),(3,2)],[(3,3),(4,2)]
+         self.assertEqual (transpuesta  (d),[[(1, 2), (3, 3)], [(3, 2), (4, 2)]])
+
+    def test_conjugmat (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        self.assertEqual (conjugmat (d),[[(1, -2), (3, -2)], [(3, -3), (4, -2)]])
+
+    def test_adjunta (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        self.assertEqual (adjunta(d),[[(1, -2), (3, -3)], [(3, -2), (4, -2)]])
 
 if __name__ == '__main__':
         unittest.main()
