@@ -19,13 +19,17 @@ def conjug (a):
     return (a[0], -(a[1]))
 
 def mod (a,b):
-    return ((a**2)+(b**2))**0.5
+    modulo = round((((a**2)+(b**2))**0.5),2)
+    return (modulo)
 
 def pol (a,b):
-    return (mod (a,b), math.degrees(math.atan2(b,a)))
+    modulo = round (mod (a,b),2)
+    grados = round (math.degrees(math.atan2(b,a)),2)
+    return (modulo, grados )
 
 def fase (a,b):
-    return (math.degrees(math.atan2(b,a)))
+    res= round ((math.degrees(math.atan2(b,a))),2)
+    return (res)
 
 def addvect (a,b):
     matriz = len (a)*[([],[])]
@@ -110,14 +114,7 @@ def conjugmat (a):
     return (matriz)
 
 def adjunta (a):
-    matriz = []
-    for i in range(len(a)):
-        matriz.append([])
-        for j in range(len(a)):
-            matriz[i].append(None)
-    for i in range (0,len (a)):
-        for j in range (0, len (a)):
-            matriz[i][j] = conjug (a[j][i])
+    matriz = transpuesta(conjugmat (a))
     return (matriz)
 
 def multimat (a,b):
@@ -125,17 +122,100 @@ def multimat (a,b):
     for i in range(len(a)): 
         matriz.append([])
         for j in range(len(a)):
-            matriz[i].append(None)
+            matriz[i].append(0)
     for i in range (0,len(a)):
         for j in range (0,len(a)):
-            for l in range (0,len(a)):
-                for t in range (0,len(a)):
-                    k = 0
-                    mul = (0,0)
-                    acum = (0,0)
-                    while k < len(a):
-                        mul = mult(a[l][k],b[k][t])
-                        acum = suma(acum , mul)
-                        k=k+1
-                matriz[i][j]= acum
+            acum =(0,0)
+            for k in range (0,len(a)):
+                mul = mult(a[i][k],b[k][j])
+                acum = suma(acum,mul)
+            matriz[i][j]= acum
     return (matriz)
+
+def accion (a,b):
+    matriz = []
+    for i in range(len(b)): 
+        matriz.append([])
+        for j in range(1):
+            matriz[i].append(0)
+    for i in range (0,len(b)):
+        acum =(0,0)
+        for j in range (0,len(a)):
+            mul = mult(b[j],a[i][j])
+            acum = suma (acum,mul)
+            matriz[i] = acum
+    return (matriz)
+
+def interno (a,b):
+    acum=(0,0)
+    for i in range (0,len(a)):
+        mul = mult(conjug(a[i]),b[i])
+        acum = suma (acum,mul)
+    return (acum)
+
+def norma_vect (a):
+    prod = (interno(a,a))
+    produ = prod [0]**0.5
+    res = round (produ,2)
+    return (res)
+
+def dist (a,b):
+    difer = inverse (b)
+    rest= addvect (a,difer)
+    inte= interno (rest,rest)
+    raiz = inte[0] **0.5
+    res= round (raiz,2)
+    return (res)
+
+def matin(a):
+    matriz = []
+    for i in range(a): 
+        matriz.append([])
+        for j in range(a):
+            matriz[i].append((0,0))
+    for i in range(a):
+        for j in range(a):
+            if i==j:
+                matriz[i][j] = (1,0)
+    return matriz
+def unitaria (a):
+    ad = adjunta(a)
+    a = multimat(a,ad)
+    iden = matin(len(a))
+    if a == iden:
+        return True
+    else:
+        return False
+
+def hermitiana (a):
+    adj = adjunta (a)
+    if adj == a:
+        return True
+    else:
+        return False
+
+def tensor(a,b):
+    matriz = []
+    con = 0
+    i = 0
+    j = 0
+
+    while (i < (len(a)-1)*2):
+        filaa = a[i]
+        filab = b[j]
+        filas = []
+        for i in filaa:
+            for j in filab:
+                filas=filas + [mult (i,j)]
+        j = j + 1
+        filab = b[j]
+        con = con + [filas]
+        filas = []
+        for i in filaa:
+            for j in filab:
+                filas=filas + [mult (i,j)]
+        i = i + 1
+        j = j - 1
+        con = con + [filas]
+   
+    return (con)
