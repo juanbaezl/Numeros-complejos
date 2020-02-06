@@ -119,3 +119,23 @@ def adjunta (a):
         for j in range (0, len (a)):
             matriz[i][j] = conjug (a[j][i])
     return (matriz)
+
+def multimat (a,b):
+    matriz = []
+    for i in range(len(a)): 
+        matriz.append([])
+        for j in range(len(a)):
+            matriz[i].append(None)
+    for i in range (0,len(a)):
+        for j in range (0,len(a)):
+            for l in range (0,len(a)):
+                for t in range (0,len(a)):
+                    k = 0
+                    mul = (0,0)
+                    acum = (0,0)
+                    while k < len(a):
+                        mul = mult(a[l][k],b[k][t])
+                        acum = suma(acum , mul)
+                        k=k+1
+                matriz[i][j]= acum
+    return (matriz)
