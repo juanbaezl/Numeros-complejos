@@ -1,21 +1,23 @@
-# Calculadora de números imaginarios 
+# Calculadora de números complejos 
 
 Libreria la cual es capaz de hacer operaciones básicas de números complejos representados como tuplas. 
 Sus operaciones incluyen: suma, resta, multiplicación, división, modulo, conjugado, cambio de coordenadas cartesianas a polares y retornar la fase del complejo.
 
 ## Comenzando 
 
-Se empieza con la idea de que las operaciones tales como la suma y la resta de los numeros complejos es la misma que una suma de vectores, pero al llegar a la multiplicacion y division de numeros complejos se tiene que tener en cuenta la respectiva formula para que nos de el resultado correspondiente.
+-La idea de que las operaciones como son la suma y la resta de los numeros complejos se puede asimilar y programar igual que una suma de vectores.
 
-Para hacer la funcion conjugado, se tiene que saber que esta operacion significa dejar el numero imaginario como negativo.
+-Con la multiplicacion y division de numeros complejos se tiene que tener en cuenta la respectiva formula para que nos de el resultado correspondiente.
 
-Para las siguientes funciones se tiene primero que importar la biblioteca math, la cual nos ayuda con las funciones tales como la funcion seno, coseno, raiz entre otras mas.
+-Para hacer la funcion conjugado, se tiene que saber que esta operacion significa dejar el numero imaginario como negativo.
 
-Para la funcion modulo se necesita de la funcion raiz para poder hallar el resultado correspondiente.
+-Para las siguientes funciones se tiene primero que importar la biblioteca math, la cual nos ayuda con las funciones tales como la funcion seno, coseno, raiz entre otras mas.
 
-Para la funcion retorno de fase se necesita de la funcion tangente^-1 para poder hallar el angulo que se requiere, el cual es el resultado total.
+-La funcion modulo es la suma al cuadrado del imaginario y el real y se necesita de la funcion raiz para poder hallar el resultado correspondiente.
 
-Para la funcion pasar de coordenadas cartesianas a polares se necesita la funcion raiz, con la cual encontramos la longitud de la recta polar, asi como tambien necesitamos la funcion tangente^-1 para hallar el angulo correspondiente. Estos dos valores encontrados forman una tupla la cual concluye el paso de coordenadas.
+-La funcion retorno de fase se necesita de la funcion tangente^-1 para poder hallar el angulo que se requiere, el cual es el resultado total.
+
+La funcion pasar de coordenadas cartesianas a polares se necesita la funcion raiz, con la cual encontramos la longitud de la recta polar, asi como tambien necesitamos la funcion tangente^-1 para hallar el angulo correspondiente. Estos dos valores encontrados forman una tupla la cual concluye el paso de coordenadas.
 
 ## Ejecucion de pruebas
 Para la ejecucion de las pruebas automarizadas creadas para el programa de calculadora, se hizo un programa con el nombre de test.py con su respectivo codigo para las operaciones que se requieran probar con otros numeros.
