@@ -29,7 +29,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_modulo(self):
             v = (3,1)
-            self.assertEqual (mod (v[0],v[1]) , (10**(1/2)))
+            self.assertEqual (mod (v[0],v[1]) , 3.16)
 
     def test_fase (self) :
         v = (1,1)
@@ -37,7 +37,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_polar (self):
         v = (1,1)
-        self.assertEqual (pol (v[0],v[1]) , ((2**(1/2)) , 45))
+        self.assertEqual (pol (v[0],v[1]) , (1.41 , 45))
 
     def test_addvect (self):
         d=[(1,2),(1,2),(1,2),(1,2)]
@@ -55,7 +55,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_summat (self):
         d=[(1,2),(3,2)],[(3,3),(4,2)]
-        v=[(1,2),(3,2)],[(2,2),[5,2]]
+        v=[(1,2),(3,2)],[(2,2),(5,2)]
         self.assertEqual (addmat (d,v),[[(2, 4), (6, 4)], [(5, 5), (9, 4)]])
 
     def test_invmat (self):
@@ -79,6 +79,43 @@ class TestStringMethods(unittest.TestCase):
         d=[(1,2),(3,2)],[(3,3),(4,2)]
         self.assertEqual (adjunta(d),[[(1, -2), (3, -3)], [(3, -2), (4, -2)]])
 
+    def test_multimat (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        v=[(1,2),(3,2)],[(2,2),(5,2)]
+        self.assertEqual (multimat (v,d), [[(0, 19), (7, 22)], [(7, 27), (18, 28)]])
+
+    def test_accion (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        v=[(1,2),(3,2)]
+        self.assertEqual (accion (d,v), [(2, 16), (5, 23)])
+
+    def test_interno (self):
+        d=[(1,2),(3,2),(2,2),(5,2)]
+        v=[(1,2),(3,2),(2,2),(5,2)]
+        self.assertEqual (interno (v,d),(55, 0))
+
+    def test_norma (self):
+        v=[(1,2),(3,2),(2,2),(5,2)]
+        self.assertEqual (norma_vect (v), 7.42)
+
+    def test_distancia (self):
+        d=[(1,2),(3,2),(3,3),(4,2)]
+        v=[(1,2),(3,2),(2,2),(5,2)]
+        self.assertEqual (dist(v,d),1.73)
+
+    def test_unitaria (self):
+        d=[(1,0),(0,0)],[(0,0),(1,0)]
+        self.assertEqual (unitaria(d), True)
+
+    def test_hermitiana (self):
+        d=[[(1,0),(0,0)],[(0,0),(1,0)]]
+        self.assertEqual (unitaria(d), True)
+
+    def tets_tensor (self):
+        d=[(1,2),(3,2)],[(3,3),(4,2)]
+        v=[(1,1),(1,1)],[(1,1),(1,1)]
+        self.assertEqual (tensor(v,d), [[(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)], [(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)], [(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)], [(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)], [(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)], [(1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3), (1, 1), (2, 2), (3, 3)]])
 if __name__ == '__main__':
         unittest.main()
+
 
