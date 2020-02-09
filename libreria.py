@@ -149,7 +149,7 @@ def accion (a,b):
 def interno (a,b):
     acum=(0,0)
     for i in range (0,len(a)):
-        mul = mult(conjug(a[i]),b[i])
+        mul = mult((conjug(a[i])),b[i])
         acum = suma (acum,mul)
     return (acum)
 
@@ -193,29 +193,54 @@ def hermitiana (a):
         return True
     else:
         return False
+def mult_ima (b,a):
+    matriz = []
+    for i in range(len(b)):
+        matriz.append([])
+        for j in range(len(b)):
+            matriz[i].append(None)
+    for i in range (0,len (b)):
+        for j in range (0, len (b)):
+            matriz [i][j]= (mult(a,(b[i][j])))
+    return (matriz)
 
 def tensor(a,b):
-    matriz = []
-    con = 0
-    i = 0
-    j = 0
+    ll= []
+    ff= []
+    zz=[]
+    tt=[]
+    jj=[]
+    oo=[]
+    matriz=[]
+    for i in range (len(a)):
+        for j in range(len(a)):
+            dd = mult_ima (b,a[i][j])
+            ll = ll + [dd]
+    for r in range (0,len (a)):
+        for l in range (0,len(a)*len(b)):
+            dd = ll[l][r]
+            ff = ff + [dd]
+    for r in range (0,len(a)*len(b)):
+        for l in range (0,len(a)):
+            dd = ff[r][l]
+            zz = zz + [dd]
+    for r in range (4,2*(len(a)*len(b))):
+        for l in range (0,(len(a))):
+            dd = ff[r][l]
+            tt = tt + [dd]
 
-    while (i < (len(a)-1)*2):
-        filaa = a[i]
-        filab = b[j]
-        filas = []
-        for i in filaa:
-            for j in filab:
-                filas=filas + [mult (i,j)]
-        j = j + 1
-        filab = b[j]
-        con = con + [filas]
-        filas = []
-        for i in filaa:
-            for j in filab:
-                filas=filas + [mult (i,j)]
-        i = i + 1
-        j = j - 1
-        con = con + [filas]
-   
-    return (con)
+    for r in range (len(a)):
+        f=0
+        while f < len (b):
+            yy = zz[f]
+            jj= jj+[yy]
+            f=f+1
+        u=0
+        while u < len (b):
+            uu = tt[u]
+            oo= oo+ [uu]
+            u=u+1
+    for r in range (len(a)):
+        matriz= matriz+[jj]+[oo]      
+    
+    return(matriz)
