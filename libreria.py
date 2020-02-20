@@ -227,4 +227,4 @@ def tensor(a,b):
         i = i + 1
         j = j - 1
         resultado=resultado+[res]
-   return resultado
+    return (resultado)
