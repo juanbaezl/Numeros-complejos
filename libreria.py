@@ -205,42 +205,26 @@ def mult_ima (b,a):
     return (matriz)
 
 def tensor(a,b):
-    ll= []
-    ff= []
-    zz=[]
-    tt=[]
-    jj=[]
-    oo=[]
-    matriz=[]
-    for i in range (len(a)):
-        for j in range(len(a)):
-            dd = mult_ima (b,a[i][j])
-            ll = ll + [dd]
-    for r in range (0,len (a)):
-        for l in range (0,len(a)*len(b)):
-            dd = ll[l][r]
-            ff = ff + [dd]
-    for r in range (0,len(a)*len(b)):
-        for l in range (0,len(a)):
-            dd = ff[r][l]
-            zz = zz + [dd]
-    for r in range (4,2*(len(a)*len(b))):
-        for l in range (0,(len(a))):
-            dd = ff[r][l]
-            tt = tt + [dd]
+    resultado = []
+    control = 0
+    i = 0
+    j = 0
 
-    for r in range (len(a)):
-        f=0
-        while f < len (b):
-            yy = zz[f]
-            jj= jj+[yy]
-            f=f+1
-        u=0
-        while u < len (b):
-            uu = tt[u]
-            oo= oo+ [uu]
-            u=u+1
-    for r in range (len(a)):
-        matriz= matriz+[jj]+[oo]      
-    
-    return(matriz)
+    while (i < (len(a)-1)*2):
+        fila = a[i]
+        columna = b[j]
+        res = []
+        for k in fila:
+            for l in columna:
+                res=res + [mult(k,l)]
+        j = j + 1
+        columna = b[j]
+        resultado= resultado + [res]
+        res = []
+        for k in fila:
+            for l in columna:
+                res=res + [mult(k,l)]
+        i = i + 1
+        j = j - 1
+        resultado=resultado+[res]
+   return resultado
