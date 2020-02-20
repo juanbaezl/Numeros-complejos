@@ -1,23 +1,26 @@
-# Calculadora de números complejos 
+# Simulador computador cuántico 
 
 Libreria la cual es capaz de hacer operaciones básicas de números complejos representados como tuplas. 
 Sus operaciones incluyen: suma, resta, multiplicación, división, modulo, conjugado, cambio de coordenadas cartesianas a polares y retornar la fase del complejo.
+A partir de estas funciones básicas de numeros imaginarios, procederemos a realizar las funciones con vectores y mmatrices, para así, simular las ecuaciones de un computador cuántico.
 
 ## Comenzando 
 
 -La idea de que las operaciones como son la suma y la resta de los numeros complejos se puede asimilar y programar igual que una suma de vectores.
 
--Con la multiplicacion y division de numeros complejos se tiene que tener en cuenta la respectiva formula para que nos de el resultado correspondiente.
+-Con la multiplicación y división de numeros complejos se tiene que tener en cuenta la respectiva formula para que nos de el resultado correspondiente.
 
--Para hacer la funcion conjugado, se tiene que saber que esta operacion significa dejar el numero imaginario como negativo.
+-Para hacer la función conjugado, se tiene que saber que esta operación significa dejar el numero imaginario como negativo.
 
 -Para las siguientes funciones se tiene primero que importar la biblioteca math, la cual nos ayuda con las funciones tales como la funcion seno, coseno, raiz entre otras mas.
 
--La funcion modulo es la suma al cuadrado del imaginario y el real y se necesita de la funcion raiz para poder hallar el resultado correspondiente.
+-La función modulo es la suma al cuadrado del imaginario y el real y se necesita de la funcion raiz para poder hallar el resultado correspondiente.
 
--La funcion retorno de fase se necesita de la funcion tangente^-1 para poder hallar el angulo que se requiere, el cual es el resultado total.
+-La función retorno de fase se necesita de la funcion tangente^-1 para poder hallar el angulo que se requiere, el cual es el resultado total.
 
-La funcion pasar de coordenadas cartesianas a polares se necesita la funcion raiz, con la cual encontramos la longitud de la recta polar, asi como tambien necesitamos la funcion tangente^-1 para hallar el angulo correspondiente. Estos dos valores encontrados forman una tupla la cual concluye el paso de coordenadas.
+-La función pasar de coordenadas cartesianas a polares se necesita la funcion raiz, con la cual encontramos la longitud de la recta polar, asi como tambien necesitamos la funcion tangente^-1 para hallar el angulo correspondiente. Estos dos valores encontrados forman una tupla la cual concluye el paso de coordenadas.
+
+Teniendo esta base de funciones se tienen otras funciones que se despliegan de estas, como lo serían las diferentes funciones para vectores y para matrices que nos ayudará a completar la libreria para simular un computador cuantico.
 
 ## Ejecucion de pruebas
 Para la ejecucion de las pruebas automarizadas creadas para el programa de calculadora, se hizo un programa con el nombre de test.py con su respectivo codigo para las operaciones que se requieran probar con otros numeros.
