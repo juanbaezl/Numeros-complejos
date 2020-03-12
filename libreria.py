@@ -19,7 +19,7 @@ def conjug (a):
     return (a[0], -(a[1]))
 
 def mod (a,b):
-    modulo = round((((a**2)+(b**2))**0.5),2)
+    modulo =((((a**2)+(b**2))**0.5))
     return (modulo)
 
 def pol (a,b):
@@ -56,6 +56,11 @@ def escal (a,b):
     matriz = len (a)*[([],[])]
     for i in range (0,len(a)):
            matriz[i] = multi(b,(a[i]))
+    return (matriz)
+def conjugvect(a):
+    matriz = len (a)*[([],[])]
+    for i in range (0,len(a)):
+           matriz[i] = conjug(a[i])
     return (matriz)
     
 def addmat (a,b):
@@ -156,7 +161,7 @@ def interno (a,b):
 def norma_vect (a):
     prod = (interno(a,a))
     produ = prod [0]**0.5
-    res = round (produ,2)
+    res = produ
     return (res)
 
 def dist (a,b):
@@ -228,3 +233,5 @@ def tensor(a,b):
         j = j - 1
         resultado=resultado+[res]
     return (resultado)
+
+
